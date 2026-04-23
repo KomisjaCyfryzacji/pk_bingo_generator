@@ -414,7 +414,7 @@ frame = tk.Frame(root)
 frame.pack(padx=10, pady=10)
 
 # Checkbox dla standardowego Bingo
-standard_bingo_var = tk.BooleanVar(value=false)
+standard_bingo_var = tk.BooleanVar(value=False)
 standard_check = tk.Checkbutton(frame,
                                 text="Użyj formatu PK BINGO",
                                 variable=standard_bingo_var, fg="blue", font=("Arial", 9, "bold"))
