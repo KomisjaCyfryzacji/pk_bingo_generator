@@ -1,0 +1,43 @@
+INSTRUKCJA (dla bmabika) — jak używać pk-bingo-generator.exe
+
+Co to jest
+- To jest generator kart Bingo: robi podgląd pojedynczej karty i generuje PDF (A4) z wieloma kartami.
+
+Szybki start (najczęściej wystarczy)
+1) Uruchom pk-bingo-generator.exe.
+2) Niczego nie musisz zmieniać w liczbach / wymiarach — domyślne wartości są ustawione tak, żeby działało „od strzała”.
+3) Podmień loga/grafiki:
+   - W polu „Tło (ścieżka)” kliknij „Wybierz…” i wskaż plik grafiki tła (PNG/JPG itp.).
+   - W polu „Obrazek w środku” kliknij „Wybierz…” i wskaż plik grafiki do środkowego pola.
+     (Na planszy 5x5 środek to środkowy kwadrat.)
+4) Kliknij „Podgląd”, żeby sprawdzić czy wszystko wygląda dobrze.
+5) Kliknij „Generuj PDF”, wybierz gdzie zapisać plik i gotowe.
+
+Uwaga o plikach tymczasowych
+- Podczas generowania PDF aplikacja może na chwilę tworzyć pliki typu „_tmp_card_0.png”, „_tmp_card_1.png” obok miejsca uruchomienia programu.
+  Powinna je usuwać automatycznie po zakończeniu.
+
+Kontrolki — co można zmieniać (opcjonalnie)
+Jeśli będzie potrzeba, możesz „pobawić się” ustawieniami w oknie programu:
+- „Ilość kart” — ile kart wygenerować do jednego PDF.
+- „Kolumny”, „Wiersze” — rozmiar siatki (domyślnie 5x5).
+- „Od liczby” / „Do liczby” — zakres liczb (używany, gdy NIE korzystamy z formatu PK BINGO).
+- „Szerokość [cm]”, „Wysokość [cm]”, „Miejsce na górze [cm]” — wymiary karty i miejsce na górze (np. na nagłówek/logotyp).
+- „Odstęp [cm]”, „Margines z lewej [cm]”, „Szerokość/Wysokość kwadratu [cm]” — geometria siatki.
+- „Ścieżka czcionki”, „Rozmiar czcionki” — wygląd liczb.
+- „Wybierz kolor kwadratów” — kolor wypełnienia pól.
+- „Znajdź centrum” — pomocniczo wylicza „Margines z lewej”, żeby siatka była wycentrowana (gdy zmieniasz wymiary/odstępy).
+
+Checkbox „Użyj formatu PK BINGO” — co to jest
+- To jest stary/legacy sposób losowania liczb (opisany w kodzie jako „PK BINGO PK EDITION FORMAT”).
+- Działa TYLKO, gdy masz 5 kolumn (np. plansza 5x5).
+- Gdy jest włączony, liczby nie są losowane z jednego wspólnego zakresu „Od/Do”, tylko każda kolumna ma własny zakres (BINGO-style):
+  - kolumna 1: 1–18
+  - kolumna 2: 19–36
+  - kolumna 3: 37–54
+  - kolumna 4: 55–72
+  - kolumna 5: 73–90
+
+Dlaczego aktualnie tego NIE używamy
+- Aktualnie robimy „nowe bingo”, więc zostawiamy checkbox „Użyj formatu PK BINGO” WYŁĄCZONY.
+- Przy nowym bingo liczby są losowane w oparciu o „Od liczby” / „Do liczby” (domyślnie 1–75) i to jest obecnie właściwy tryb.
