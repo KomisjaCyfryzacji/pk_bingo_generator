@@ -45,6 +45,17 @@ The app opens a window where you can tweak parameters and then:
 - **Podgląd**: render a preview of a single card
 - **Generuj PDF**: choose a save location and generate a multi-card PDF
 
+## Build a Windows .exe (PyInstaller)
+
+From this folder (`pk_bingo_generator/`) with the venv activated:
+
+- `pip install pyinstaller`
+- `pyinstaller --noconsole --onefile --clean --name pk-bingo-generator --add-data "assets;assets" script.py`
+
+Result:
+
+- `dist/pk-bingo-generator.exe`
+
 ## Notes
 
 - The default paths in the UI point to `./assets/karta.png`, `./assets/kwadrat_kolor_cut_no_border.png`, and `./assets/Luckiest_Guy/LuckiestGuy-Regular.ttf`.

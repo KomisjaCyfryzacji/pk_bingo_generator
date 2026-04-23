@@ -5,6 +5,7 @@ from reportlab.pdfgen import canvas
 from reportlab.lib.pagesizes import A4
 import random, os
 import platform
+import sys
 
 preview_window = None
 preview_canvas = None
@@ -12,6 +13,12 @@ preview_canvas = None
 # Stałe
 CM_TO_PT = 28.35  # 1 cm = 28.35 punktów PDF
 CM_TO_PX = 37.8  # 1 cm ≈ 37.8 px (96 DPI)
+
+
+def resource_path(*relative_parts: str) -> str:
+    """Resolve a resource path for both source runs and PyInstaller bundles."""
+    base_dir = getattr(sys, "_MEIPASS", os.path.dirname(os.path.abspath(__file__)))
+    return os.path.join(base_dir, *relative_parts)
 
 
 # Funkcja do znajdowania dostępnych czcionek
@@ -464,7 +471,7 @@ count_entry.grid(row=8, column=1, padx=5, pady=2)
 # Tło
 tk.Label(frame, text="Tło (ścieżka):").grid(row=9, column=0, sticky="w")
 background_entry = tk.Entry(frame, width=30)
-background_entry.insert(0, "./assets/karta.png")
+background_entry.insert(0, resource_path("assets", "karta.png"))
 background_entry.grid(row=9, column=1, padx=5, pady=2)
 choose_bg_btn = tk.Button(frame, text="Wybierz...", command=choose_background)
 choose_bg_btn.grid(row=9, column=2, padx=5)
@@ -472,7 +479,7 @@ choose_bg_btn.grid(row=9, column=2, padx=5)
 # Obrazek w środku
 tk.Label(frame, text="Obrazek w środku:").grid(row=10, column=0, sticky="w")
 center_img_entry = tk.Entry(frame, width=30)
-center_img_entry.insert(0, "./assets/kwadrat_kolor_cut_no_border.png")
+center_img_entry.insert(0, resource_path("assets", "kwadrat_kolor_cut_no_border.png"))
 center_img_entry.grid(row=10, column=1, padx=5, pady=2)
 choose_center_img_btn = tk.Button(frame, text="Wybierz...", command=lambda: choose_file(center_img_entry))
 choose_center_img_btn.grid(row=10, column=2, padx=5)
@@ -491,7 +498,7 @@ generate_btn.grid(row=12, column=1, pady=5)
 # Czcionka
 tk.Label(frame, text="Ścieżka czcionki:").grid(row=13, column=0, sticky="w")
 font_entry = tk.Entry(frame, width=30)
-font_entry.insert(0, "./assets/Luckiest_Guy/LuckiestGuy-Regular.ttf")
+font_entry.insert(0, resource_path("assets", "Luckiest_Guy", "LuckiestGuy-Regular.ttf"))
 font_entry.grid(row=13, column=1, padx=5, pady=2)
 choose_font_btn = tk.Button(frame, text="Wybierz czcionkę", command=choose_font)
 choose_font_btn.grid(row=13, column=2, padx=5)
